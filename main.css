@@ -1,0 +1,220 @@
+/* Global */
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1640px;
+  width: 100%;
+  margin: 0 auto;
+}
+.wrapper {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+img {
+  max-width: 100%;
+  width: 100%;
+}
+body {
+  font-family: "Prompt", serif;
+  background-image: linear-gradient(
+    to right,
+    var(--bg-color),
+    var(--bg-color2)
+  );
+}
+/* variables */
+:root {
+  --bg-color: #fff;
+  --bg-color2: #fff;
+  --text-color: #000;
+  --purple: #a88eeb;
+  --paige: #ffeae2;
+  --toggle-bg: #a88eeb;
+  --toggle-cirle: #fff;
+  --smooth: all 0.3s ease-in;
+}
+.darkmode {
+  --bg-color: #000;
+  --bg-color2: #4c3b77;
+  --text-color: #fff;
+  --purple: #a88eeb;
+  --paige: #ffeae2;
+  --toggle-bg: #fff;
+  --toggle-cirle: #a88eeb;
+
+  --foreground: var(--clr-light);
+  --background: var(--clr-dark);
+}
+/* Header */
+header {
+  padding: 0 15px;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+  /* outline: 1px solid red; */
+}
+.navbar__logo {
+  font-size: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+.navbar__links {
+  padding-top: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.navbar__link {
+  list-style: none;
+  padding: 5px 0;
+}
+.navbar__link a {
+  text-decoration: none;
+  font-size: 20px;
+  color: var(--text-color);
+  text-transform: capitalize;
+  transition: var(--smooth);
+}
+.navbar__link a:hover {
+  color: var(--purple);
+  transition: var(--smooth);
+}
+/* toggle button */
+.navbar__toggle {
+  margin-top: 5px;
+}
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 63px;
+  height: 31px;
+  background: var(--toggle-bg);
+  display: block;
+  border-radius: 30px;
+  position: relative;
+}
+label:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  width: 25px;
+  height: 25px;
+  background: var(--toggle-cirle);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+input:checked + label {
+  background: var(--toggle-bg);
+}
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+  background: var(--toggle-cirle);
+}
+label:active:after {
+  width: 30px;
+}
+@media (min-width: 62em) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 140px;
+  }
+  .navbar__links {
+    flex-direction: row;
+  }
+  .navbar__link {
+    margin: 0 35px;
+  }
+  .navbar__toggle {
+    margin-top: 0;
+  }
+}
+/* Banner */
+#banner {
+  padding: 2% 0;
+  height: 100vh;
+}
+#banner .wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px 5% 15px;
+}
+.banner__img {
+  order: 1;
+}
+.banner__desc {
+  order: 2;
+  text-align: center;
+}
+.banner__desc h1 {
+  font-size: 65px;
+  color: var(--text-color);
+  max-width: 700px;
+  width: 100%;
+}
+.banner__desc p {
+  color: var(--text-color);
+  padding-top: 15px;
+  font-size: 24px;
+  max-width: 700px;
+  width: 100%;
+}
+.banner__btn {
+  margin-top: 45px;
+}
+.banner__btn button {
+  cursor: pointer;
+  padding: 1em 2em;
+  border-radius: 5px;
+  font-size: 20px;
+  text-transform: uppercase;
+  border: none;
+  background-image: linear-gradient(to right, var(--purple), var(--paige));
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  transform: var(--smooth);
+}
+.banner__btn button:hover {
+  background-image: linear-gradient(to left, var(--purple), var(--paige));
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  transform: var(--smooth);
+}
+@media (min-width: 62em) {
+  #banner .wrapper {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  #banner .wrapper {
+    padding: 0 15px;
+  }
+  .banner__img {
+    order: 2;
+  }
+  .banner__desc {
+    order: 1;
+    text-align: initial;
+  }
+}
