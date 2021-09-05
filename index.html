@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
     <!-- style -->
@@ -17,7 +17,7 @@
   <body>
     <!-- Header -->
     <header class="container">
-      <nav>
+      <nav class="navbar">
         <div class="navbar__logo">
           <p>logo</p>
         </div>
@@ -27,7 +27,7 @@
           <li class="navbar__link"><a href="#">pricing</a></li>
           <li class="navbar__link"><a href="#">demo</a></li>
           <div class="navbar__toggle">
-            <input type="checkbox" id="switch" />
+            <input type="checkbox" id="switch" class="navbar__toggle-btn" />
             <label for="switch">Toggle</label>
           </div>
         </ul>
@@ -35,19 +35,21 @@
     </header>
     <!-- Banner -->
     <section id="banner">
-      <div class="wrapper">
-        <div class="banner__desc">
-          <h1>Lorem ipsum dolor sit amet</h1>
-          <p>
-            Cras sed velit consectetur, lobortis neque ut, mattis metus. Nulla
-            eu quam non urna luctus eleifend vitae eget ante.
-          </p>
-          <div class="banner__btn">
-            <a href=""><button>learn more</button></a>
+      <div class="container">
+        <div class="wrapper">
+          <div class="banner__desc">
+            <h1>Lorem ipsum dolor sit amet</h1>
+            <p>
+              Cras sed velit consectetur, lobortis neque ut, mattis metus. Nulla
+              eu quam non urna luctus eleifend vitae eget ante.
+            </p>
+            <div class="banner__cta">
+              <a href="#" class="banner__cta-btn">learn more</a>
+            </div>
           </div>
-        </div>
-        <div class="banner__img">
-          <img src="./img/app.png" alt="app phone" />
+          <div class="banner__img">
+            <img src="./img/app.png" alt="app phone" />
+          </div>
         </div>
       </div>
     </section>

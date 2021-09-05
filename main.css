@@ -12,21 +12,24 @@
   margin: 0 auto;
 }
 .wrapper {
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
+  padding: 0 15px;
 }
 img {
   max-width: 100%;
   width: 100%;
 }
 body {
-  font-family: "Prompt", serif;
+  font-family: "Nunito", serif;
   background-image: linear-gradient(
     to right,
     var(--bg-color),
     var(--bg-color2)
   );
+}
+@media (min-width: 62em) {
+  .wrapper {
+    padding: 0 138px;
+  }
 }
 /* variables */
 :root {
@@ -44,28 +47,23 @@ body {
   --bg-color2: #4c3b77;
   --text-color: #fff;
   --purple: #a88eeb;
-  --paige: #ffeae2;
   --toggle-bg: #fff;
   --toggle-cirle: #a88eeb;
-
-  --foreground: var(--clr-light);
-  --background: var(--clr-dark);
 }
 /* Header */
 header {
   padding: 0 15px;
 }
-nav {
+.navbar {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 280px;
-  /* outline: 1px solid red; */
 }
 .navbar__logo {
-  font-size: 25px;
-  font-weight: 600;
+  font-size: 1.625rem;
+  font-weight: 700;
   text-transform: uppercase;
   color: var(--text-color);
 }
@@ -83,7 +81,7 @@ nav {
 }
 .navbar__link a {
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: var(--text-color);
   text-transform: capitalize;
   transition: var(--smooth);
@@ -96,7 +94,7 @@ nav {
 .navbar__toggle {
   margin-top: 5px;
 }
-input[type="checkbox"] {
+.navbar__toggle-btn {
   height: 0;
   width: 0;
   visibility: hidden;
@@ -122,10 +120,10 @@ label:after {
   border-radius: 50%;
   transition: 0.3s;
 }
-input:checked + label {
+.navbar__toggle-btn:checked + label {
   background: var(--toggle-bg);
 }
-input:checked + label:after {
+.navbar__toggle-btn:checked + label:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
   background: var(--toggle-cirle);
@@ -134,7 +132,7 @@ label:active:after {
   width: 30px;
 }
 @media (min-width: 62em) {
-  nav {
+  .navbar {
     flex-direction: row;
     justify-content: space-between;
     height: 140px;
@@ -151,13 +149,11 @@ label:active:after {
 }
 /* Banner */
 #banner {
-  padding: 2% 0;
-  height: 100vh;
+  padding-bottom: 5%;
 }
-#banner .wrapper {
+.wrapper {
   display: flex;
   flex-direction: column;
-  padding: 0 15px 5% 15px;
 }
 .banner__img {
   order: 1;
@@ -167,48 +163,68 @@ label:active:after {
   text-align: center;
 }
 .banner__desc h1 {
-  font-size: 65px;
+  font-size: 4rem;
   color: var(--text-color);
-  max-width: 700px;
-  width: 100%;
+  text-transform: capitalize;
 }
 .banner__desc p {
   color: var(--text-color);
   padding-top: 15px;
-  font-size: 24px;
+  font-size: 1.5rem;
   max-width: 700px;
   width: 100%;
 }
-.banner__btn {
+.banner__cta {
   margin-top: 45px;
 }
-.banner__btn button {
+.banner__cta-btn {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: box-shadow.3s ease-in-out;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 400;
   cursor: pointer;
   padding: 1em 2em;
-  border-radius: 5px;
-  font-size: 20px;
+  border-radius: 2em;
+  font-size: 1.125rem;
   text-transform: uppercase;
   border: none;
-  background-image: linear-gradient(to right, var(--purple), var(--paige));
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  transform: var(--smooth);
 }
-.banner__btn button:hover {
+.banner__cta-btn::before,
+.banner__cta-btn::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(to right, var(--purple), var(--paige));
+  border-radius: 2em;
+  z-index: -1;
+}
+
+.banner__cta-btn::after {
+  opacity: 0;
   background-image: linear-gradient(to left, var(--purple), var(--paige));
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  transform: var(--smooth);
+  transition: opacity.3s ease-in-out;
+}
+
+.banner__cta-btn:hover::after {
+  opacity: 1;
 }
 @media (min-width: 62em) {
-  #banner .wrapper {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
+  #banner {
+    padding-bottom: 0;
   }
-  #banner .wrapper {
-    padding: 0 15px;
+  .wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   .banner__img {
     order: 2;
